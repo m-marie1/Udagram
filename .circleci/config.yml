@@ -48,23 +48,35 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
-  test:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install:
-          node-version: '14.15'      
-      - checkout
+      # TODO: Test the frontend API     
       - run:
           name: Front-End Test          
           command: |
             echo "# TODO: Test the frontend app"
             npm run frontend:test 
+      # TODO: Test the backend API      
       - run:
           name: API Test          
           command: |
             echo "# TODO: Test the backend app"
-            npm run api:test       
+            npm run api:test      
+  # test:
+  #   docker:
+  #     - image: "cimg/base:stable"
+  #   steps:
+  #     - node/install:
+  #         node-version: '14.15'      
+  #     - checkout
+  #     - run:
+  #         name: Front-End Test          
+  #         command: |
+  #           echo "# TODO: Test the frontend app"
+  #           npm run frontend:test 
+  #     - run:
+  #         name: API Test          
+  #         command: |
+  #           echo "# TODO: Test the backend app"
+  #           npm run api:test       
              
   # deploy step will run only after manual approval
   deploy:
@@ -88,9 +100,9 @@ workflows:
   udagram:
     jobs:
       - build
-      - test:
-          requires:
-            - build 
+      # - test:
+      #     requires:
+      #       - build 
       - hold:
           filters:
             branches:
@@ -99,7 +111,7 @@ workflows:
           type: approval
           requires:
             - build
-            - test
+            # - test
       - deploy:
           requires:
             - hold
