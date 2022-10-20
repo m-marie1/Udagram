@@ -15,7 +15,7 @@
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\"",
-    "ebdeploy": "npm run build && chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
+    "ebdeploy": "npm install && npm run build && chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
