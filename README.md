@@ -75,6 +75,8 @@ This project contains two different test suite: unit tests and End-To-End tests(
 
 There are no Unit test on the back-end
 
+Note: There are errors with End-To-End tests and unit tests for the frontend and since these errors are related to the project (starter files) itself and not to deployment process, I made the scripts echo "no test specified" just like the backend.
+
 ### Unit Tests:
 
 Unit tests are using the Jasmine Framework.
