@@ -65,7 +65,7 @@ jobs:
           command: |
             echo "# TODO: Test the backend app"
             npm run api:test       
-    steps:         
+             
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -88,6 +88,7 @@ workflows:
   udagram:
     jobs:
       - build
+      - test
       - hold:
           filters:
             branches:
