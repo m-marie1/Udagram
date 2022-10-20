@@ -1,0 +1,2 @@
+eb init udagram-api --platform node.js --region us-east-1 &&
+eb use udagram-api-env && eb setenv POSTGRES_USERNAME=postgres POSTGRES_PASSWORD=password POSTGRES_DB=postgres POSTGRES_HOST=database-1.ccwhzrd9933t.us-east-1.rds.amazonaws.com JWT_SECRET=secret-jwt-secret && eb deploy
