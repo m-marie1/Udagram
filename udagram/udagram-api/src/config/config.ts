@@ -7,7 +7,8 @@ dotenv.config();
 // Are Also needed
 
 export const config = {
-  username: `${process.env.POSTGRES_USERNAME}`,
+  port: process.env.PORT,
+  username: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   host: process.env.POSTGRES_HOST,
