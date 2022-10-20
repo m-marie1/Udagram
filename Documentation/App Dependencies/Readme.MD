@@ -1,19 +1,49 @@
-{
-  "name": "udagram-frontend",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
-    "test": "echo \"Error: no test specified\"",
-    "lint": "ng lint",
-    "e2e": "echo \"Error: no test specified\""
+# Udagram app dependencies
+
+
+## Backend Dependencies
+
+"dependencies": {
+    "@types/bcryptjs": "2.4.2",
+    "@types/jsonwebtoken": "^8.3.2",
+    "aws-sdk": "^2.429.0",
+    "bcryptjs": "2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.5.0",
+    "sequelize-typescript": "^2.1.5"
   },
-  "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@types/bluebird": "^3.5.26",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.11.6",
+    "@types/sequelize": "^4.28.14",
+    "@types/validator": "^13.7.8",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^6.1.4",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^4.8.4"
+  }
+
+
+
+
+## Frontend Dependencies
+
+
+"dependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@angular/forms": "^8.2.14",
@@ -56,6 +86,4 @@
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
     "typescript": "^3.5.3"
-  },
-  "description": "An Ionic project"
-}
+  }

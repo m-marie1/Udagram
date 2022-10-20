@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
+  # orbs contain basic recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
@@ -48,7 +48,7 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
-      # TODO: Test the frontend API     
+      # TODO: Test the frontend app     
       - run:
           name: Front-End Test          
           command: |
@@ -59,25 +59,13 @@ jobs:
           name: API Test          
           command: |
             echo "# TODO: Test the backend app"
-            npm run api:test      
-  # test:
-  #   docker:
-  #     - image: "cimg/base:stable"
-  #   steps:
-  #     - node/install:
-  #         node-version: '14.15'      
-  #     - checkout
-  #     - run:
-  #         name: Front-End Test          
-  #         command: |
-  #           echo "# TODO: Test the frontend app"
-  #           npm run frontend:test 
-  #     - run:
-  #         name: API Test          
-  #         command: |
-  #           echo "# TODO: Test the backend app"
-  #           npm run api:test       
-             
+            npm run api:test
+      # TODO: End to end test for the frontend app      
+      - run:
+          name: Front-End e2e Test          
+          command: |
+            echo "# TODO: Test the frontend app"
+            npm run frontend:e2e
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -100,9 +88,6 @@ workflows:
   udagram:
     jobs:
       - build
-      # - test:
-      #     requires:
-      #       - build 
       - hold:
           filters:
             branches:
@@ -111,7 +96,6 @@ workflows:
           type: approval
           requires:
             - build
-            # - test
       - deploy:
           requires:
             - hold
