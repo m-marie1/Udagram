@@ -1,6 +1,6 @@
 # Pipeline Process
 
-A pipeline is used to automate our deployment process so that every time we make some code changes and push the code to Github, The pipeline service is trigered and is starting to make the rest for us: installs dependencies, builds, tests, and deploy both the backend and frontend.
+A pipeline is used to automate our deployment process so that every time we make some code changes and push the code to Github, The pipeline service is trigered and is starting to make the rest for us: installs dependencies, builds, tests, and deploys both the backend and frontend.
 
 I used CircleCI for this process, connected CircleCI account to my Github account and followed the udagram project repository.
 
@@ -118,13 +118,18 @@ With our build and deploy jobs, We've achieved our goal of continous integration
 ### Workflows
 
 Workflows are instructions about the order of the jobs. They allow to create complex flows and specify manual approvals.
-When we want a job to run before another job, We make the second requires the first which means the first is required for the second to run. We created a hold that requires the build job to run first. And the deploy job requires that hold. The of hold is: approval which means we should manually approve so that the hold is done and deploy starts.
+When we want a job to run before another job, We make the second requires the first which means the first is required for the second to run. We created a hold that requires the build job to run first. And the deploy job requires that hold. The type of hold is: approval which means we should manually approve so that the hold is done and deploy starts.
+Filters are used to tell CircleCI to only do the jobs when code is pushed to the main/master branch.
 
 ```
 workflows:
   udagram:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - hold:
           filters:
             branches:

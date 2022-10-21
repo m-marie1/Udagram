@@ -13,22 +13,41 @@ Note: There's a more detailed documentation in the Documentation folder.
 
 # Udagram
 
+Note: This project is a Udacity Nanodegree project and was deployed using a given AWS account for the course. So The app currently isn't hosted on AWS, but can be setup very easily after creating an instance of RDS, EB, and S3 bucket.
+
 The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+
+### Udagram Infrastructure
+
+Udagram is deployed using AWS ( Amazon Web Services ) Cloud. The main 3 services used are:
+ * AWS Relational Database Service (RDS): for creating a postgres database that will contain all the data related to users.
+ * AWS ELastic Beanstalk: for hosting the api and is connected to the RDS database.
+ * AWS S3: for hosting the frontend that fetches the API.
+
+
+### Pipeline Process
+
+A pipeline is used to automate our deployment process so that every time we make some code changes and push the code to Github, The pipeline service is trigered and is starting to make the rest for us: installs dependencies, builds, tests, and deploys both the backend and frontend.
+
+I used CircleCI for this process, connected CircleCI account to my Github account and followed the udagram project repository.
+
+A config.yml file is required for CircleCI. It's present in the root of project in .circleci folder
 
 
 ### Environment Variables
 
 These are the environment variables in .env file in udagram-api:
 
-POSTGRES_USERNAME="postgres"
-POSTGRES_PASSWORD="password"
+POSTGRES_USERNAME=
+POSTGRES_PASSWORD=
 POSTGRES_DB="postgres"
-POSTGRES_HOST="database-1.ccwhzrd9933t.us-east-1.rds.amazonaws.com"
-AWS_REGION=""
-AWS_PROFILE=""
-AWS_BUCKET=""
-URL="http://localhost"
-JWT_SECRET="secret-jwt-secret"
+POSTGRES_HOST=
+PORT=
+AWS_REGION=
+AWS_PROFILE=
+AWS_BUCKET=
+URL=
+JWT_SECRET=
 
 
 ### Usage
@@ -75,7 +94,6 @@ This project contains two different test suite: unit tests and End-To-End tests(
 
 There are no Unit test on the back-end
 
-Note: There are errors with End-To-End tests and unit tests for the frontend and since these errors are related to the project (starter files) itself and not to deployment process, I made the scripts echo "no test specified" just like the backend.
 
 ### Unit Tests:
 
