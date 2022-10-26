@@ -92,7 +92,7 @@ This project contains two different test suite: unit tests and End-To-End tests(
 1. `npm run test`
 1. `npm run e2e`
 
-There are no Unit test on the back-end
+There are no Unit test on the back-end.
 
 
 ### Unit Tests:
